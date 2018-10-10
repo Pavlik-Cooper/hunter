@@ -1,0 +1,10 @@
+facebook socialite
+InvalidStateException
+1) Go to config/session.php
+2) In your config/session.php:
+   //change this
+   'cookie' => 'laravel_session'
+   //and this
+   'domain' => 'my_domain'
+3) 'php artisan cache:clear' and 'composer dump-autoload'
+Be sure to delete your cookies from browser when testing it after these modifications are done.

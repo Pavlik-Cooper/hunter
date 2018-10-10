@@ -1,0 +1,16 @@
+{
+  "Confirm Password": "Підтвердження пароля",
+  "E-Mail Address": "E-Mail адрес",
+  "Forgot Your Password?": "Забули пароль?",
+  "If you did not request a password reset, no further action is required.": "Якщо Ви не робили запит на відновлення пароля, то подальші дії не потрібні.",
+  "Login": "Увійти",
+  "Logout": "Вийти",
+  "Name": "Ім'я",
+  "Password": "Пароль",
+  "Register": "Реєстрація",
+  "Remember Me": "Запам'ятати мене",
+  "Reset Password": "Відновити пароль",
+  "Reset Password Notification": "Сповіщення відновлення пароля",
+  "Send Password Reset Link": "Надіслати посилання відновлення пароля",
+  "You are receiving this email because we received a password reset request for your account.": "Ви отримали цей лист, тому що ми отримали запит на відновлення пароля для Вашого облікового запису."
+}
