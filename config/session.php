@@ -153,7 +153,7 @@ return [
     */
 
 //    'domain' => env('SESSION_DOMAIN', null),
-    'domain' => 'localhost',
+    'domain' => 'hunter.test',
 
     /*
     |--------------------------------------------------------------------------

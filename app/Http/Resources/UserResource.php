@@ -31,7 +31,10 @@ class UserResource extends JsonResource
     }
     private function getLastMsg($id){
         $session = Session::whereIn('user1_id',[auth()->id(),$id])->whereIn('user2_id',[auth()->id(),$id])->first();
-        return $session->chats->where('user_id',auth()->id())->count() > 0 &&  $session->messages->count() ? $session->messages()->latest()->first()->message : "";
+        if ($session) {
+            return $session->chats->where('user_id',auth()->id())->count() > 0 &&  $session->messages->count() ? $session->messages()->latest()->first()->message : "";
+        }
+        return "";
     }
 
 }

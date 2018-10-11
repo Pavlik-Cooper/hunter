@@ -12,6 +12,7 @@ class FriendsController extends Controller
 {
     //
     public function index(User $user){
+//        dd("qwef");
         return UserResource::collection($user->friends()->get());
     }
 }
