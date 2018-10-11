@@ -33,8 +33,9 @@ Route::get('setlocale/{lang}', function ($lang) {
 
 Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], function(){
 
-
     Route::get('/','ThreadsController@index')->name('threads');
+//    Route::get('/',function (){ dd(env('DUMMY')); });
+
     Auth::routes();
     Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
     Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
