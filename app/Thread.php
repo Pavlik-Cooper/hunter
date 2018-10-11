@@ -74,4 +74,8 @@ class Thread extends Model
 
         return $reply;
     }
+    public function scopePopularAllTime($query)
+    {
+        return $query->withCount('visits')->orderBy('visits_count', 'desc');
+    }
 }
