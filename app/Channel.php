@@ -9,6 +9,8 @@ class Channel extends Model
 {
     use Sluggable;
 
+    protected $fillable = ['name'];
+
     public function getRouteKeyName(){
         return 'slug';
     }

@@ -15,7 +15,7 @@ class RedirectIfEmailNotConfirmed
      */
     public function handle($request, Closure $next)
     {
-        if (!$request->user()->confirmed) {
+        if ($request->user() && !$request->user()->confirmed) {
             return redirect('/')->with(['flash'=>['type'=>'i','message'=>'You must first confirm your email address']]);
         }
         return $next($request);

@@ -27,6 +27,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    protected $appends = ['IsFriend'];
     public function activities(){
         return $this->hasMany('App\Activity');
     }
@@ -41,5 +42,8 @@ class User extends Authenticatable
     }
     public function friends(){
         return $this->belongsToMany(User::class,'friends','user_id','friend_id');
+    }
+    public function getIsFriendAttribute(){
+        return $this->friends()->where('friend_id',auth()->id())->exists();
     }
 }

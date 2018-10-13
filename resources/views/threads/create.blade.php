@@ -10,7 +10,7 @@
                     <div class="panel-heading text-center">Create a New Thread</div>
 
                     <div class="panel-body">
-                        <form method="POST" action="/threads">
+                        <form method="POST" action="/threads/store">
                         {{ csrf_field() }}
 
                             <div class="form-group">

@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+    {{--@dd($profileUser->isFriend)--}}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-               <div class="page-header row justify-content-center">
-                   <avatar-form :user="{{ $profileUser }}"></avatar-form>
-               </div>
+                <div class="page-header row justify-content-center align-items-center">
+                    <avatar-form :user="{{ $profileUser }}"></avatar-form>
+                    <follow-button :is-friend="{{ json_encode($profileUser->IsFriend)}}" :profile-user-id="{{$profileUser->id}}"></follow-button>
+                </div>
 
                 {{-- since activities are grouped by date, the
                 keys are date itself and values are arrays of activities--}}
@@ -19,7 +21,7 @@
                 @endforeach
 
                 <div class="row justify-content-center">
-                        {{--{{ $threads->links() }}--}}
+                    {{--{{ $threads->links() }}--}}
                 </div>
             </div>
         </div>

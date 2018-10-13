@@ -31,7 +31,9 @@
                 return this.authorize(user => user.id === this.user.id);
             }
         },
-
+        mounted(){
+            console.log(this.user)
+        },
         methods: {
             onLoad(avatar) {
                 this.avatar = avatar.src;

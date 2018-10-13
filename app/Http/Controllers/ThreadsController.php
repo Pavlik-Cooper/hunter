@@ -36,6 +36,7 @@ class ThreadsController extends Controller
 
     public function store(Request $request, Spam $spam)
     {
+
         $request->validate([
             'title'=>['required',new SpamFree],
             'body'=>['required',new SpamFree],

@@ -7,6 +7,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    <a class="nav-link text-light" href="/channels/create">New channel</a>
     <a class="nav-link text-light" href="/threads/create">New thread</a>
     <div class="dropdown">
         <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -34,8 +34,6 @@ Route::get('setlocale/{lang}', function ($lang) {
 Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], function(){
 
     Route::get('/','ThreadsController@index')->name('threads');
-//    Route::get('/',function (){ dd(env('DUMMY')); });
-
     Auth::routes();
     Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
     Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
@@ -44,8 +42,14 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
     Route::get('/profiles/{user}/notifications', 'UserNotificationsController@index');
     Route::delete('/profiles/{user}/notifications/{notification?}', 'UserNotificationsController@destroy');
-    Route::get('threads/create', 'ThreadsController@create')->middleware('email-must-be-confirmed');
-    Route::post('/threads', 'ThreadsController@store')->middleware('email-must-be-confirmed');
+
+    Route::get('/channels/create', 'ChannelsController@create')->middleware('email-must-be-confirmed');
+
+    Route::get('/threads/create', 'ThreadsController@create')->middleware('email-must-be-confirmed');
+
+    Route::post('/threads/store', 'ThreadsController@store')->middleware('email-must-be-confirmed');
+    Route::post('/channels/store', 'ChannelsController@store')->middleware('email-must-be-confirmed');
+
     Route::get('/threads/{channel}', 'ThreadsController@index')->name('channel.show');
     Route::get('/threads/{channel}/{thread}/', 'ThreadsController@show');
     Route::put('/threads/{channel}/{thread}/', 'ThreadsController@update');
@@ -61,9 +65,12 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     Route::post('/replies/{reply}/favorites', 'FavoritesController@store');
     Route::delete('/replies/{reply}/favorites', 'FavoritesController@destroy');
     Route::get('/register/confirm','RegisterConfirmationController@index');
-
     Route::post('/api/users/{user}/avatar','Api\UserAvatarController@store')->middleware('auth');
+
     Route::get('/api/chat/{user}/friends','Api\FriendsController@index')->middleware('auth');
+    Route::post('/api/chat/{user}/friends','Api\FriendsController@store')->middleware('auth');
+    Route::delete('/api/chat/{user}/friends','Api\FriendsController@destroy')->middleware('auth');
+
     Route::post('/api/chat/session/create','Chat\SessionController@store')->middleware('auth');
     Route::post('/api/chat/{session}/message','Chat\ChatController@store')->middleware('auth');
     Route::get('/api/chat/{session}/read','Chat\ChatController@markAsRead')->middleware('auth');

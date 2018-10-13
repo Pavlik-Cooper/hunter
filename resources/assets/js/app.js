@@ -44,6 +44,7 @@ Vue.component('flash',require('./components/flash.vue'));
 Vue.component('thread-view', require('./components/thread-view.vue'));
 Vue.component('newreply', require('./components/newreply.vue'));
 Vue.component('avatar-form', require('./components/avatar-form.vue'));
+Vue.component('follow-button', require('./components/follow-button.vue'));
 Vue.component('notification', require('./components/notification.vue'));
 Vue.component('chat', require('./components/chat.vue'));
 
